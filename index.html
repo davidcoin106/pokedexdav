@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pokédex</title>
+  <script src="https://kit.fontawesome.com/0d953e133b.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <header>
+    <h1 class="title">Pokédex</h1>
+    <i class="tooltip-icon far fa-question-circle"></i>
+    <span class="tooltip">This isn't an exhaustive list of pokémons, only the ones appearing in the Kanto regional Pokédex. For more information please consult your local Pokémon Professor!</span>
+
+    <div class="search-options-wrapper">
+      <div class="search-options">
+
+        <div class="search-form-wrapper">
+          <form class="search-form">
+            <input type="text" name="searchbar" id="searchbar" placeholder="Type in a pokémon name...">
+            <i class="search-icon fas fa-search"></i>
+          </form>
+        </div>
+
+        <div class="poke-type-selection">
+          <label for="poke-types">Select a type: </label>
+          <select name="poke-types" id="poke-types">
+            <option value="">--Please choose an option--</option>
+          </select>
+        </div>
+
+      </div>
+    </div>
+
+  </header>
+
+  <main>
+    <div id="pokemon-container"></div>
+  </main>
+
+  <footer>
+    <ul class="social-links">
+      <li><a href="https://github.com/FluffyKas" aria-label="Github"><i class="fab fa-github"></i></a></li>
+      <li><a href="https://www.linkedin.com/in/zsofi-maruzs-a5a703216/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
+      <li><a href="https://codepen.io/pipepanna" aria-label="Codepen"><i class="fab fa-codepen"></i></a></li>
+    </ul>
+    <p class="copyright">Created with 
+      <span><i class="far fa-heart" aria-hidden="true"></i></span>
+      <span class="sr-only">love</span>
+      by FluffyKas &copy; 2021
+    </p>
+
+    <a href="#" class="page-up" aria-label="To the top of the page"><i class="far fa-arrow-alt-circle-up"></i></a>
+  </footer>
+
+<script src="index.js"></script>
+</body>
+</html>
