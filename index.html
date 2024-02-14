@@ -1,34 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pokédex</title>
+  <title>Pokédex David</title>
   <script src="https://kit.fontawesome.com/0d953e133b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
   <header>
-    <h1 class="title">Pokédex</h1>
-    <i class="tooltip-icon far fa-question-circle"></i>
-    <span class="tooltip">This isn't an exhaustive list of pokémons, only the ones appearing in the Kanto regional Pokédex. For more information please consult your local Pokémon Professor!</span>
+    <h1 class="titulo">Pokédex David</h1>
+    <i class="icono-de-ayuda tooltip-icon far fa-question-circle"></i>
+    <span class="tooltip">Esta no es una lista exhaustiva de pokémon, solo aquellos que aparecen en el Pokédex regional de Kanto. ¡Para más información, consulta a tu Profesor Pokémon local!</span>
 
-    <div class="search-options-wrapper">
-      <div class="search-options">
+    <div class="opciones-de-busqueda-wrapper">
+      <div class="opciones-de-busqueda">
 
-        <div class="search-form-wrapper">
-          <form class="search-form">
-            <input type="text" name="searchbar" id="searchbar" placeholder="Type in a pokémon name...">
-            <i class="search-icon fas fa-search"></i>
+        <div class="formulario-de-busqueda-wrapper">
+          <form class="formulario-de-busqueda">
+            <input type="text" name="barra-de-busqueda" id="barra-de-busqueda" placeholder="Escribe el nombre de un pokémon...">
+            <i class="icono-de-busqueda fas fa-search"></i>
           </form>
         </div>
 
-        <div class="poke-type-selection">
-          <label for="poke-types">Select a type: </label>
-          <select name="poke-types" id="poke-types">
-            <option value="">--Please choose an option--</option>
+        <div class="seleccion-de-tipo-de-pokemon">
+          <label for="tipos-de-pokemon">Selecciona un tipo: </label>
+          <select name="tipos-de-pokemon" id="tipos-de-pokemon">
+            <option value="">--Por favor elige una opción--</option>
           </select>
         </div>
 
@@ -38,22 +38,18 @@
   </header>
 
   <main>
-    <div id="pokemon-container"></div>
+    <div id="contenedor-de-pokemon"></div>
   </main>
 
   <footer>
-    <ul class="social-links">
-      <li><a href="https://github.com/FluffyKas" aria-label="Github"><i class="fab fa-github"></i></a></li>
-      <li><a href="https://www.linkedin.com/in/zsofi-maruzs-a5a703216/" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a></li>
-      <li><a href="https://codepen.io/pipepanna" aria-label="Codepen"><i class="fab fa-codepen"></i></a></li>
+    <ul class="enlaces-sociales">
+      <li><a href="https://github.com/davidcoin106" aria-label="Github"><i class="fab fa-github"></i></a></li>
     </ul>
-    <p class="copyright">Created with 
-      <span><i class="far fa-heart" aria-hidden="true"></i></span>
-      <span class="sr-only">love</span>
-      by FluffyKas &copy; 2021
+    <p class="derechos-de-autor">Creado por David Coín 😎
+      
     </p>
 
-    <a href="#" class="page-up" aria-label="To the top of the page"><i class="far fa-arrow-alt-circle-up"></i></a>
+    <a href="#" class="subir-pagina" aria-label="Ir arriba de la página"><i class="far fa-arrow-alt-circle-up"></i></a>
   </footer>
 
 <script src="index.js"></script>

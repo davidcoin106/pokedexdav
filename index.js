@@ -1,22 +1,22 @@
 // TOOLTIP
 
-const tooltip_icon = document.querySelector(".tooltip-icon");
+const icono_de_ayuda = document.querySelector(".icono-de-ayuda");
 const tooltip = document.querySelector(".tooltip");
 
-tooltip_icon.addEventListener("mouseover", () => {
-  tooltip.style.visibility= 'visible';
+icono_de_ayuda.addEventListener("mouseover", () => {
+  tooltip.style.visibility = 'visible';
 });
 
-tooltip_icon.addEventListener("mouseleave", () => {
-  tooltip.style.visibility= 'hidden';
+icono_de_ayuda.addEventListener("mouseleave", () => {
+  tooltip.style.visibility = 'hidden';
 });
 
 
 // POKEDEX
 
-const container = document.getElementById("pokemon-container");
-const pokemonsNumber = 151;
-const type_colors = {
+const contenedor = document.getElementById("contenedor-de-pokemon");
+const numero_de_pokemons = 151;
+const colores_de_tipos = {
   fire: '#fd7d24',
   grass: '#9bcc50',
   electric: '#EED535',
@@ -33,94 +33,93 @@ const type_colors = {
   normal: '#a4acaf'
 };
 
-const main_types = Object.keys(type_colors);
+const tipos_principales = Object.keys(colores_de_tipos);
 
-const fetchPokemons = async () => {
-  for(let i=1; i<=pokemonsNumber; i++) {
-    await getPokemon(i);
+async function obtenerPokemons() {
+  for (let i = 1; i <= numero_de_pokemons; i++) {
+    await obtenerPokemon(i);
   }
 }
 
-const getPokemon = async id => {
+async function obtenerPokemon(id) {
   const url = `https://pokeapi.co/api/v2/pokemon/${id}/`;
-  const res = await fetch(url);
-  const pokemon = await res.json();
-  createPokemonCard(pokemon);
+  const respuesta = await fetch(url);
+  const pokemon = await respuesta.json();
+  crearTarjetaPokemon(pokemon);
 }
 
-fetchPokemons();
+obtenerPokemons();
 
-function createPokemonCard(pokemon) {
-  const pokemonElement = document.createElement('div');
-  pokemonElement.classList.add('pokemon');
+function crearTarjetaPokemon(pokemon) {
+  const elementoPokemon = document.createElement('div');
+  elementoPokemon.classList.add('pokemon');
 
-  const name = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
-  const poke_types = pokemon.types.map(el => el.type.name);
-  const type = main_types.find(type => poke_types.indexOf(type) > -1);
-  const color = type_colors[type];
+  const nombre = pokemon.name[0].toUpperCase() + pokemon.name.slice(1);
+  const tipos = pokemon.types.map(el => el.type.name);
+  const tipo = tipos_principales.find(tipo => tipos.indexOf(tipo) > -1);
+  const color = colores_de_tipos[tipo];
 
-  pokemonElement.style.borderBottom= '14px solid' + color;
+  elementoPokemon.style.borderBottom = '14px solid' + color;
 
-  const pokeInnerHTML = 
-  `
-  <div class="card">
-    <figure class="card__img-container">
-      <img class="poke-img" src="${pokemon.sprites.front_default}" alt="${name}."/>
+  const contenidoHTML =
+    `
+  <div class="tarjeta">
+    <figure class="contenedor-de-imagen">
+      <img class="imagen-de-pokemon" src="${pokemon.sprites.front_default}" alt="${nombre}."/>
     </figure>
-    <div class="card__info">
-      <span class="poke-id">#${pokemon.id.toString().padStart(3, '0')}</span>
-      <h2 class="poke-name">${name}</h2>
-      <p class="poke-type">Type: ${type}</p>
+    <div class="informacion-de-tarjeta">
+      <span class="id-de-pokemon">#${pokemon.id.toString().padStart(3, '0')}</span>
+      <h2 class="nombre-de-pokemon">${nombre}</h2>
+      <p class="tipo-de-pokemon">Tipo: ${tipo}</p>
     </div>
   </div>
   `;
 
-  pokemonElement.innerHTML = pokeInnerHTML;
-  container.appendChild(pokemonElement);
+  elementoPokemon.innerHTML = contenidoHTML;
+  contenedor.appendChild(elementoPokemon);
 }
 
-// SEARCHBAR
+// BARRA DE BÚSQUEDA
 
-const form = document.querySelector(".search-form")
-form.addEventListener("keyup", (e) => {
-  const keyword = e.target.value.toLowerCase();
-  const nameArray = document.querySelectorAll(".poke-name");
+const formulario = document.querySelector(".formulario-de-busqueda")
+formulario.addEventListener("keyup", (e) => {
+  const palabraClave = e.target.value.toLowerCase();
+  const arrayDeNombres = document.querySelectorAll(".nombre-de-pokemon");
 
   e.preventDefault()
-  Array.from(nameArray).forEach((name)=> {
-    const pokeName = name.textContent;
-    if(pokeName.toLowerCase().indexOf(keyword)!=(-1)) {
-      name.parentElement.parentElement.parentElement.style.display = "block";
+  Array.from(arrayDeNombres).forEach((nombre) => {
+    const nombrePokemon = nombre.textContent;
+    if (nombrePokemon.toLowerCase().indexOf(palabraClave) !== -1) {
+      nombre.parentElement.parentElement.parentElement.style.display = "block";
     } else {
-      name.parentElement.parentElement.parentElement.style.display = "none";
+      nombre.parentElement.parentElement.parentElement.style.display = "none";
     }
   })
 
 })
 
+// FILTRO DE SELECCIÓN
 
-// SELECT FILTER
+const seleccion = document.getElementById("tipos-de-pokemon");
+tipos_principales.sort();
 
-const select = document.getElementById("poke-types");
-main_types.sort();
-
-main_types.forEach(type => {
-  let option = document.createElement("option");
-  select.appendChild(option);
-  option.innerText = type[0].toUpperCase() + type.slice(1);
+tipos_principales.forEach(tipo => {
+  let opcion = document.createElement("option");
+  seleccion.appendChild(opcion);
+  opcion.innerText = tipo[0].toUpperCase() + tipo.slice(1);
 });
 
-select.addEventListener("change", (e) => {
-  const pokeTypes = document.querySelectorAll(".poke-type");
-  option = e.target.value.toLowerCase();
+seleccion.addEventListener("change", (e) => {
+  const tiposDePokemon = document.querySelectorAll(".tipo-de-pokemon");
+  opcion = e.target.value.toLowerCase();
 
   e.preventDefault()
-  Array.from(pokeTypes).forEach((type)=> {
-    const pokeType = type.textContent;
-    if(pokeType.indexOf(option)!=(-1)) {
-      type.parentElement.parentElement.parentElement.style.display = "block";
+  Array.from(tiposDePokemon).forEach((tipo) => {
+    const tipoPokemon = tipo.textContent;
+    if (tipoPokemon.indexOf(opcion) !== -1) {
+      tipo.parentElement.parentElement.parentElement.style.display = "block";
     } else {
-      type.parentElement.parentElement.parentElement.style.display = "none";
+      tipo.parentElement.parentElement.parentElement.style.display = "none";
     }
   })
 
