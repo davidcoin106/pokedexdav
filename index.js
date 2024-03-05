@@ -67,6 +67,10 @@ function asignarDescripcion(pokemon) {
     pokemon.description = "Bulbasaur puede verse durmiendo bajo la luz del sol brillante. Hay una semilla en su espalda. Absorbiendo los rayos del sol, la semilla crece progresivamente más grande.";
   } else if (pokemon.name === "charmeleon") {
     pokemon.description = "Charmeleon destruye sin piedad a sus enemigos usando sus garras afiladas. Si se encuentra con un oponente fuerte, se vuelve agresivo. En este estado emocionado, la llama en la punta de su cola brilla con un color blanco azulado.";
+  } else if (pokemon.name === "venusaur") {
+    pokemon.description = "Venusaur tiene una flor en su espalda que captura la energía solar para convertirla en nutrición. Se dice que la flor desprende un aroma tranquilizador que apacigua los ánimos en combate.";
+  } else if (pokemon.name === "charizard") {
+    pokemon.description = "Charizard vuela por el cielo en busca de oponentes poderosos. Escupe fuego tan caliente que puede derretir rocas. Se dice que cuando Charizard exhala una llama de color azul-blanco, es una señal de que está en plena batalla.";
   } else if (pokemon.name === "wartortle") {
     pokemon.description = "La cola de Wartortle es grande y cubierta con una piel rica y gruesa. La cola se vuelve cada vez más profunda en color a medida que Wartortle envejece. Los arañazos en su caparazón son evidencia de la resistencia de este Pokémon como luchador.";
   } else if (pokemon.name === "blastoise") {
