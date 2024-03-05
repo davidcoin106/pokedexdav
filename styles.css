@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -45,7 +47,7 @@ header {
   position: absolute;
   top: 6.1rem;
   right: 2.2rem;
-  visibility: hidden; 
+  visibility: hidden;
 }
 
 .tooltip::before {
@@ -110,6 +112,7 @@ header {
   top: 50%;
   transform: translateY(-50%);
 }
+
 .search-btn:hover {
   background: hsla(0, 0%, 15%, .6);
 }
@@ -163,7 +166,7 @@ header {
   background-color: rgba(241, 239, 239, .65);
   box-shadow: 0 3px 15px rgba(100, 100, 100, 0.35);
   backdrop-filter: blur(5rem);
-  -webkit-backdrop-filter: blur(5rem); 
+  -webkit-backdrop-filter: blur(5rem);
   border-radius: 15px;
   cursor: pointer;
   width: 15rem;
@@ -176,7 +179,7 @@ header {
 
 .pokemon:hover {
   transform: scale(1.075);
-} 
+}
 
 .contenedor-de-imagen {
   background: white;
@@ -292,11 +295,130 @@ footer {
   outline: none;
 }
 
-.subir-pagina    :focus-visible {
+.subir-pagina :focus-visible {
   /* para navegadores que admiten :focus-visible */
   outline: 3px dotted white;
 }
 
+/* modal de personajes */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Fondo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Estilos para el contenido del modal */
+.modal-contenido {
+  background-color: #e1e6ff;
+  padding: 2%;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  width: 80%;
+  height: 80%;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  /* Color de icono */
+  font-size: 24px;
+}
+
+.modal-imagen {
+  width: 128px;
+  height: auto;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+}
+
+.modal-descripcion {
+  font-style: italic;
+  margin-bottom: 20px;
+}
+
+.modal-contenido h2 {
+  margin-top: 20px;
+}
+
+.modal-contenido ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.modal-contenido ul li {
+  margin-bottom: 5px;
+}
+
+.modal-contenido p {
+  margin-bottom: 10px;
+}
+
+.modal-contenido h3 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+
+.modal-cerrar {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  color: white;
+  /* Color de icono */
+  font-size: 64px;
+}
+
+.modal-cerrar:hover {
+  color: #333;
+  /* Color de icono al pasar el cursor */
+}
+
+.cookie-dialog {
+  z-index: 999;
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cookie-content {
+  text-align: center;
+}
+
+.cookie-buttons button {
+  margin: 10px;
+  padding: 8px 20px;
+  cursor: pointer;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+}
+
+.cookie-buttons button:hover {
+  background-color: #0056b3;
+}
 
 @media (min-width: 31.5rem) {
   .opciones-de-busqueda {
@@ -325,3 +447,4 @@ footer {
     gap: 2rem;
   }
 }
+

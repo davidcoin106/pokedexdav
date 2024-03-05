@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,19 +9,39 @@
   <script src="https://kit.fontawesome.com/0d953e133b.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
+  <div id="cookie-dialog" class="cookie-dialog">
+    <div class="cookie-content">
+      <h2>Uso de cookies</h2>
+      <p>Este sitio web utiliza cookies para garantizar que obtengas la mejor experiencia en nuestra página web.</p>
+      <div class="cookie-buttons">
+        <button onclick="acceptCookies()">Aceptar</button>
+        <button onclick="rejectCookies()">Rechazar</button>
+      </div>
+    </div>
+  </div>
+  
   <header>
     <h1 class="titulo">Pokédex David</h1>
     <i class="icono-de-ayuda tooltip-icon far fa-question-circle"></i>
-    <span class="tooltip">Esta no es una lista exhaustiva de pokémon, solo aquellos que aparecen en el Pokédex regional de Kanto. ¡Para más información, consulta a tu Profesor Pokémon local!</span>
+    <span class="tooltip">Esta no es una lista exhaustiva de pokémon, solo aquellos que aparecen en el Pokédex regional
+      de Kanto. ¡Para más información, consulta a tu Profesor Pokémon local!</span>
+    <div style="display: flex; flex-direction: column; width: 200px;">
+      <label for="musica">Banada sonora de pokemon:</label>
+      <button onclick="toggleAudio()" id="musica">Activar / Desactivar</button>
+    </div>
+
+    <audio id="audio" src="pokemon-theme.mp3"></audio>
 
     <div class="opciones-de-busqueda-wrapper">
       <div class="opciones-de-busqueda">
 
         <div class="formulario-de-busqueda-wrapper">
           <form class="formulario-de-busqueda">
-            <input type="text" name="barra-de-busqueda" id="barra-de-busqueda" placeholder="Escribe el nombre de un pokémon...">
+            <input type="text" name="barra-de-busqueda" id="barra-de-busqueda"
+              placeholder="Escribe el nombre de un pokémon...">
             <i class="icono-de-busqueda fas fa-search"></i>
           </form>
         </div>
@@ -35,6 +56,12 @@
       </div>
     </div>
 
+    <!-- Enlaces para la página de contacto y de sobre la página -->
+    <nav class="enlaces-header" style="display: flex; justify-content: space-evenly; padding: 8px;">
+      <a style="color:white" href="contacto.html" class="enlace-header">Contacto</a>
+      <a style="color:white" href="sobre.html" class="enlace-header">Sobre la página</a>
+    </nav>
+
   </header>
 
   <main>
@@ -45,13 +72,22 @@
     <ul class="enlaces-sociales">
       <li><a href="https://github.com/davidcoin106" aria-label="Github"><i class="fab fa-github"></i></a></li>
     </ul>
-    <p class="derechos-de-autor">Creado por David Coín 😎
-      
-    </p>
-
+    <p class="derechos-de-autor">Creado por David Coín 😎</p>
     <a href="#" class="subir-pagina" aria-label="Ir arriba de la página"><i class="far fa-arrow-alt-circle-up"></i></a>
   </footer>
 
-<script src="index.js"></script>
+  <script src="index.js"></script>
 </body>
+<script>
+  let audio = document.getElementById("audio");
+
+  function toggleAudio() {
+    if (audio.paused) {
+      audio.play();
+    } else {
+      audio.pause();
+    }
+  }
+</script>
+
 </html>
